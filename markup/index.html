@@ -37,7 +37,34 @@
     <main class="main">
       <section class="main__control control container">
         <h1 class="control__title">TASKMANAGER</h1>
-        <button class="control__button">+ ADD NEW TASK</button>
+        <section class="control__btn-wrap">
+          <input
+            type="radio"
+            name="control"
+            id="control__new-task"
+            class="control__input visually-hidden"
+          />
+          <label for="control__new-task" class="control__label control__label--new-task"
+            >+ ADD NEW TASK</label
+          >
+          <input
+            type="radio"
+            name="control"
+            id="control__task"
+            class="control__input visually-hidden"
+            checked
+          />
+          <label for="control__task" class="control__label">TASKS</label>
+          <input
+            type="radio"
+            name="control"
+            id="control__statistic"
+            class="control__input visually-hidden"
+          />
+          <label for="control__statistic" class="control__label"
+            >STATISTICS</label
+          >
+        </section>
       </section>
 
       <section class="main__filter filter container">
@@ -101,137 +128,14 @@
       </section>
 
       <section class="board container">
-        <div class="board__sort-list">
-          <a href="#" class="board__sort-item">SORT BY DEFAULT</a>
-          <a href="#" class="board__sort-item">SORT BY DATE up</a>
-          <a href="#" class="board__sort-item">SORT BY DATE down</a>
+        <div class="board__filter-list">
+          <a href="#" class="board__filter" data-sort-type="default">SORT BY DEFAULT</a>
+          <a href="#" class="board__filter" data-sort-type="date-up">SORT BY DATE up</a>
+          <a href="#" class="board__filter" data-sort-type="date-down">SORT BY DATE down</a>
         </div>
 
         <div class="board__tasks">
           <article class="card card--black">
-            <div class="card__form">
-              <div class="card__inner">
-                <div class="card__control">
-                  <button type="button" class="card__btn card__btn--edit">
-                    edit
-                  </button>
-                  <button type="button" class="card__btn card__btn--archive">
-                    archive
-                  </button>
-                  <button
-                    type="button"
-                    class="card__btn card__btn--favorites"
-                  >
-                    favorites
-                  </button>
-                </div>
-
-                <div class="card__color-bar">
-                  <svg class="card__color-bar-wave" width="100%" height="10">
-                    <use xlink:href="#wave"></use>
-                  </svg>
-                </div>
-
-                <div class="card__textarea-wrap">
-                  <p class="card__text">Example task with default color.</p>
-                </div>
-
-                <div class="card__settings">
-                  <div class="card__details">
-                    <div class="card__dates">
-                      <div class="card__date-deadline">
-                        <p class="card__input-deadline-wrap">
-                          <span class="card__date">23 September</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="card card--blue">
-            <div class="card__form">
-              <div class="card__inner">
-                <div class="card__control">
-                  <button type="button" class="card__btn card__btn--edit">
-                    edit
-                  </button>
-                  <button type="button" class="card__btn card__btn--archive">
-                    archive
-                  </button>
-                  <button
-                    type="button"
-                    class="card__btn card__btn--favorites"
-                  >
-                    favorites
-                  </button>
-                </div>
-
-                <div class="card__color-bar">
-                  <svg class="card__color-bar-wave" width="100%" height="10">
-                    <use xlink:href="#wave"></use>
-                  </svg>
-                </div>
-
-                <div class="card__textarea-wrap">
-                  <p class="card__text">Example task with custom color.</p>
-                </div>
-
-                <div class="card__settings">
-                  <div class="card__details">
-                    <div class="card__dates">
-                      <div class="card__date-deadline">
-                        <p class="card__input-deadline-wrap">
-                          <span class="card__date">23 September</span>
-
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="card card--yellow">
-            <div class="card__form">
-              <div class="card__inner">
-                <div class="card__control">
-                  <button type="button" class="card__btn card__btn--edit">
-                    edit
-                  </button>
-                  <button type="button" class="card__btn card__btn--archive">
-                    archive
-                  </button>
-                  <button
-                    type="button"
-                    class="card__btn card__btn--favorites"
-                  >
-                    favorites
-                  </button>
-                </div>
-
-                <div class="card__color-bar">
-                  <svg class="card__color-bar-wave" width="100%" height="10">
-                    <use xlink:href="#wave"></use>
-                  </svg>
-                </div>
-
-                <div class="card__textarea-wrap">
-                  <p class="card__text">Example task with custom color and without date.</p>
-                </div>
-
-                <div class="card__settings">
-                  <div class="card__details">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
             <div class="card__form">
               <div class="card__inner">
                 <div class="card__control">
@@ -256,7 +160,7 @@
                 </div>
 
                 <div class="card__textarea-wrap">
-                  <p class="card__text">Example task which marked as favorite.</p>
+                  <p class="card__text">Example task with default color.</p>
                 </div>
 
                 <div class="card__settings">
@@ -265,7 +169,131 @@
                       <div class="card__date-deadline">
                         <p class="card__input-deadline-wrap">
                           <span class="card__date">23 September</span>
+                          <span class="card__time">16:15</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
 
+          <article class="card card--blue">
+            <div class="card__form">
+              <div class="card__inner">
+                <div class="card__control">
+                  <button type="button" class="card__btn card__btn--edit">
+                    edit
+                  </button>
+                  <button type="button" class="card__btn card__btn--archive">
+                    archive
+                  </button>
+                  <button
+                    type="button"
+                    class="card__btn card__btn--favorites card__btn--disabled"
+                  >
+                    favorites
+                  </button>
+                </div>
+
+                <div class="card__color-bar">
+                  <svg class="card__color-bar-wave" width="100%" height="10">
+                    <use xlink:href="#wave"></use>
+                  </svg>
+                </div>
+
+                <div class="card__textarea-wrap">
+                  <p class="card__text">Example task with custom color.</p>
+                </div>
+
+                <div class="card__settings">
+                  <div class="card__details">
+                    <div class="card__dates">
+                      <div class="card__date-deadline">
+                        <p class="card__input-deadline-wrap">
+                          <span class="card__date">23 September</span>
+                          <span class="card__time">16:15</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--yellow">
+            <div class="card__form">
+              <div class="card__inner">
+                <div class="card__control">
+                  <button type="button" class="card__btn card__btn--edit">
+                    edit
+                  </button>
+                  <button type="button" class="card__btn card__btn--archive">
+                    archive
+                  </button>
+                  <button
+                    type="button"
+                    class="card__btn card__btn--favorites card__btn--disabled"
+                  >
+                    favorites
+                  </button>
+                </div>
+
+                <div class="card__color-bar">
+                  <svg class="card__color-bar-wave" width="100%" height="10">
+                    <use xlink:href="#wave"></use>
+                  </svg>
+                </div>
+
+                <div class="card__textarea-wrap">
+                  <p class="card__text">Example task with custom color and without date.</p>
+                </div>
+
+                <div class="card__settings">
+                  <div class="card__details">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card--green">
+            <div class="card__form">
+              <div class="card__inner">
+                <div class="card__control">
+                  <button type="button" class="card__btn card__btn--edit">
+                    edit
+                  </button>
+                  <button type="button" class="card__btn card__btn--archive">
+                    archive
+                  </button>
+                  <button
+                    type="button"
+                    class="card__btn card__btn--favorites card__btn--disabled"
+                  >
+                    favorites
+                  </button>
+                </div>
+
+                <div class="card__color-bar">
+                  <svg class="card__color-bar-wave" width="100%" height="10">
+                    <use xlink:href="#wave"></use>
+                  </svg>
+                </div>
+
+                <div class="card__textarea-wrap">
+                  <p class="card__text">Example task with custom color.</p>
+                </div>
+
+                <div class="card__settings">
+                  <div class="card__details">
+                    <div class="card__dates">
+                      <div class="card__date-deadline">
+                        <p class="card__input-deadline-wrap">
+                          <span class="card__date">23 September</span>
+                          <span class="card__time">16:15</span>
                         </p>
                       </div>
                     </div>
@@ -287,7 +315,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites"
+                    class="card__btn card__btn--favorites card__btn--disabled"
                   >
                     favorites
                   </button>
@@ -322,7 +350,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites"
+                    class="card__btn card__btn--favorites card__btn--disabled"
                   >
                     favorites
                   </button>
@@ -344,7 +372,7 @@
                       <div class="card__date-deadline">
                         <p class="card__input-deadline-wrap">
                           <span class="card__date">23 September</span>
-
+                          <span class="card__time">16:15</span>
                         </p>
                       </div>
                     </div>
@@ -366,7 +394,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites"
+                    class="card__btn card__btn--favorites card__btn--disabled"
                   >
                     favorites
                   </button>
@@ -401,7 +429,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites"
+                    class="card__btn card__btn--favorites card__btn--disabled"
                   >
                     favorites
                   </button>
@@ -423,7 +451,7 @@
                       <div class="card__date-deadline">
                         <p class="card__input-deadline-wrap">
                           <span class="card__date">23 September</span>
-
+                          <span class="card__time">16:15</span>
                         </p>
                       </div>
                     </div>
