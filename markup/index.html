@@ -37,34 +37,7 @@
     <main class="main">
       <section class="main__control control container">
         <h1 class="control__title">TASKMANAGER</h1>
-        <section class="control__btn-wrap">
-          <input
-            type="radio"
-            name="control"
-            id="control__new-task"
-            class="control__input visually-hidden"
-          />
-          <label for="control__new-task" class="control__label control__label--new-task"
-            >+ ADD NEW TASK</label
-          >
-          <input
-            type="radio"
-            name="control"
-            id="control__task"
-            class="control__input visually-hidden"
-            checked
-          />
-          <label for="control__task" class="control__label">TASKS</label>
-          <input
-            type="radio"
-            name="control"
-            id="control__statistic"
-            class="control__input visually-hidden"
-          />
-          <label for="control__statistic" class="control__label"
-            >STATISTICS</label
-          >
-        </section>
+        <button class="control__button">+ ADD NEW TASK</button>
       </section>
 
       <section class="main__filter filter container">
@@ -128,10 +101,10 @@
       </section>
 
       <section class="board container">
-        <div class="board__filter-list">
-          <a href="#" class="board__filter" data-sort-type="default">SORT BY DEFAULT</a>
-          <a href="#" class="board__filter" data-sort-type="date-up">SORT BY DATE up</a>
-          <a href="#" class="board__filter" data-sort-type="date-down">SORT BY DATE down</a>
+        <div class="board__sort-list">
+          <a href="#" class="board__sort-item">SORT BY DEFAULT</a>
+          <a href="#" class="board__sort-item">SORT BY DATE up</a>
+          <a href="#" class="board__sort-item">SORT BY DATE down</a>
         </div>
 
         <div class="board__tasks">
@@ -147,7 +120,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites card__btn--disabled"
+                    class="card__btn card__btn--favorites"
                   >
                     favorites
                   </button>
@@ -169,7 +142,6 @@
                       <div class="card__date-deadline">
                         <p class="card__input-deadline-wrap">
                           <span class="card__date">23 September</span>
-                          <span class="card__time">16:15</span>
                         </p>
                       </div>
                     </div>
@@ -191,7 +163,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites card__btn--disabled"
+                    class="card__btn card__btn--favorites"
                   >
                     favorites
                   </button>
@@ -213,7 +185,7 @@
                       <div class="card__date-deadline">
                         <p class="card__input-deadline-wrap">
                           <span class="card__date">23 September</span>
-                          <span class="card__time">16:15</span>
+
                         </p>
                       </div>
                     </div>
@@ -235,7 +207,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites card__btn--disabled"
+                    class="card__btn card__btn--favorites"
                   >
                     favorites
                   </button>
@@ -259,7 +231,7 @@
             </div>
           </article>
 
-          <article class="card card--green">
+          <article class="card">
             <div class="card__form">
               <div class="card__inner">
                 <div class="card__control">
@@ -284,7 +256,7 @@
                 </div>
 
                 <div class="card__textarea-wrap">
-                  <p class="card__text">Example task with custom color.</p>
+                  <p class="card__text">Example task which marked as favorite.</p>
                 </div>
 
                 <div class="card__settings">
@@ -293,7 +265,7 @@
                       <div class="card__date-deadline">
                         <p class="card__input-deadline-wrap">
                           <span class="card__date">23 September</span>
-                          <span class="card__time">16:15</span>
+
                         </p>
                       </div>
                     </div>
@@ -315,7 +287,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites card__btn--disabled"
+                    class="card__btn card__btn--favorites"
                   >
                     favorites
                   </button>
@@ -350,7 +322,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites card__btn--disabled"
+                    class="card__btn card__btn--favorites"
                   >
                     favorites
                   </button>
@@ -372,7 +344,7 @@
                       <div class="card__date-deadline">
                         <p class="card__input-deadline-wrap">
                           <span class="card__date">23 September</span>
-                          <span class="card__time">16:15</span>
+
                         </p>
                       </div>
                     </div>
@@ -394,7 +366,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites card__btn--disabled"
+                    class="card__btn card__btn--favorites"
                   >
                     favorites
                   </button>
@@ -429,7 +401,7 @@
                   </button>
                   <button
                     type="button"
-                    class="card__btn card__btn--favorites card__btn--disabled"
+                    class="card__btn card__btn--favorites"
                   >
                     favorites
                   </button>
@@ -451,7 +423,7 @@
                       <div class="card__date-deadline">
                         <p class="card__input-deadline-wrap">
                           <span class="card__date">23 September</span>
-                          <span class="card__time">16:15</span>
+
                         </p>
                       </div>
                     </div>
