@@ -2,13 +2,23 @@
   "name": "taskmanager-project",
   "version": "1.0.0",
   "description": "Менеджер задач",
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all",
+    "not < 0.25%"
+  ],
   "scripts": {
     "build": "webpack",
     "eslint": "eslint src/**/*.js",
     "test": "npm run eslint",
-    "start": "webpack-dev-server --open"
+    "start": "webpack serve --mode development --open"
   },
   "devDependencies": {
+    "@babel/core": "7.20.2",
+    "@babel/preset-env": "7.20.2",
+    "babel-loader": "9.1.0",
     "eslint": "8.19.0",
     "eslint-config-htmlacademy": "6.0.0",
     "webpack": "5.74.0",

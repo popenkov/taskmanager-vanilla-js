@@ -7,13 +7,17 @@ module.exports = {
     path: path.join(__dirname, `public`),
   },
   devtool: `source-map`, // Подключаем sourcemaps
-  devServer: {
-    contentBase: path.join(_dirname, `public`),
-    // Где искать сборку
-    // Автоматическая перезагрузка страницы
-    // По умолчанию приложение будет доступно по адресу http:
-    //localhost:8080
-    // Лучше открывать в режиме инкогнито, чтобы браузер не кэшировал файлы сборки
-    watchContentBase: true,
+  // devServer: {
+  //   contentBase: path.join(__dirname, `public`),
+  //   watchContentBase: true,
+  // },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: ["babel-loader"],
+      },
+    ],
   },
 };
