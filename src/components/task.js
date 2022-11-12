@@ -15,7 +15,6 @@ const data = [
 ];
 
 export const createTaskTemplate = (task) => {
-  console.log(task);
   const { color, description, dueDate, repeatingDays, isArchive, isFavorite } =
     task;
 
@@ -26,7 +25,10 @@ export const createTaskTemplate = (task) => {
     ? `${dueDate.getDate()} ${MONTH_NAMES[dueDate.getMonth()]}`
     : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
-  const repeatClass = `card--repeat`;
+  const repeatClass =
+    repeatingDays && Object.values(repeatingDays).some(Boolean)
+      ? `card--repeat`
+      : ``;
   const deadlineClass = isExpired ? `card--deadline` : ``;
   const archiveButtonInactiveClass = isArchive ? `` : `card__btn--disabled`;
   const favoriteButtonInactiveClass = isFavorite ? `` : `card__btn--disabled`;
@@ -61,6 +63,9 @@ export const createTaskTemplate = (task) => {
 
                 <div class="card__settings">
                   <div class="card__details">
+                  ${
+                    isDateShowing
+                      ? `
                     <div class="card__dates">
                       <div class="card__date-deadline">
                         <p class="card__input-deadline-wrap">
@@ -69,6 +74,10 @@ export const createTaskTemplate = (task) => {
                         </p>
                       </div>
                     </div>
+                    `
+                      : ``
+                  }
+
                   </div>
                 </div>
               </div>
