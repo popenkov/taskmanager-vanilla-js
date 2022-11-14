@@ -9,10 +9,16 @@ const formatTime = (date) => {
   return `${hours}:${minutes}`;
 };
 
+// convert string to DOM element
 const createElement = (template) => {
   const newElement = document.createElement(`div`);
   newElement.innerHTML = template;
-  return newElement.firstChild;
+  // skip TextNodes
+  let firstChild = newElement.firstChild;
+  while (firstChild != null && firstChild.nodeType == 3) {
+    firstChild = firstChild.nextSibling;
+  }
+  return firstChild;
 };
 
 const InsertionPosition = {

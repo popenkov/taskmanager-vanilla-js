@@ -6,6 +6,7 @@ import TaskComponent from "./components/task.js";
 import TasksComponent from "./components/tasks.js";
 import SiteMenuComponent from "./components/menu.js";
 import SortComponent from "./components/sort.js";
+import NoTaskComponent from "./components/no-task.js";
 import { generateTasks } from "./mock/task.js";
 import { generateFilters } from "./mock/filter.js";
 import { InsertionPosition, render } from "./utils.js";
@@ -20,6 +21,12 @@ const randomTasks = generateTasks(TASKS_COUNT);
 const randomFilters = generateFilters();
 
 const renderTask = (taskListElement, task) => {
+  const replaceEditToETask = () => {
+    taskListElement.replaceChild(
+      taskComponent.getElement(),
+      taskEditComponent.getElement()
+    );
+  };
   const onEditButtonClick = () => {
     taskListElement.replaceChild(
       taskEditComponent.getElement(),
@@ -29,21 +36,33 @@ const renderTask = (taskListElement, task) => {
 
   const onEditFormSubmit = (evt) => {
     evt.preventDefault();
-    taskListElement.replaceChild(
-      taskComponent.getElement(),
-      taskEditComponent.getElement()
-    );
+    replaceEditToETask();
+  };
+
+  const onEscKeyDown = (evt) => {
+    const isEscKey = evt.key === `Escape` || evt.key === `Esc`;
+
+    if (isEscKey) {
+      replaceEditToETask();
+      document.removeEventListener(`keydown`, onEscKeyDown);
+    }
   };
 
   const taskComponent = new TaskComponent(task);
   const editButton = taskComponent
     .getElement()
     .querySelector(`.card__btn--edit`);
-  editButton.addEventListener(`click`, onEditButtonClick);
+  editButton.addEventListener(`click`, () => {
+    onEditButtonClick();
+    document.addEventListener(`keydown`, onEscKeyDown);
+  });
 
   const taskEditComponent = new TaskEditComponent(task);
   const editForm = taskEditComponent.getElement().querySelector(`form`);
-  editForm.addEventListener(`submit`, onEditFormSubmit);
+  editForm.addEventListener(`submit`, (evt) => {
+    onEditFormSubmit();
+    document.removeEventListener(`keydown`, onEscKeyDown);
+  });
 
   render(
     taskListElement,
@@ -53,6 +72,17 @@ const renderTask = (taskListElement, task) => {
 };
 
 const renderBoard = (boardComponent, tasks) => {
+  const isAllTasksArchived = tasks.every((task) => task.isArchived);
+
+  if (isAllTasksArchived) {
+    render(
+      boardComponent.getElement(),
+      new NoTaskComponent().getElement(),
+      InsertionPosition.BEFOREEND
+    );
+    return;
+  }
+
   render(
     boardComponent.getElement(),
     new SortComponent().getElement(),
